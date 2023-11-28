@@ -1,0 +1,137 @@
+﻿<Window x:Class="IGraficasIES.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IGraficasIES"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="ToolWindow"
+        Title="IES Trassierra" Height="450" Width="700">
+
+    <Grid Name="GridPrincipal">
+
+        <!--GRID PRINCIPAL-->
+        <!--GRID BOTONES-->
+        <Grid x:Name="GridBotonesAvance" Margin="0,20,10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="12*" />
+                <RowDefinition Height="108*" />
+                <RowDefinition Height="6*" />
+                <RowDefinition Height="106*" />
+                <RowDefinition Height="125*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15*" />
+                <ColumnDefinition Width="10*" />
+                <ColumnDefinition Width="15*" />
+                <ColumnDefinition Width="15*" />
+                <ColumnDefinition Width="20*" />
+                <ColumnDefinition Width="10*" />
+                <ColumnDefinition Width="15*" />
+            </Grid.ColumnDefinitions>
+            <Image x:Name="imgFotoProfesor" Grid.Column="5" HorizontalAlignment="Left" Height="77" Margin="68,10,0,0" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            <Button x:Name="btnPrimero" Click="btnFirst_action" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="64,60,0,0" Grid.Row="4" RenderTransformOrigin="-0.595,-0.027" Grid.ColumnSpan="2" ToolTip="Primero"  ToolTipService.ShowOnDisabled="True">
+                <Image x:Name="imgPrimero"  Source="img/imgPrimero.png" Height="34" Width="37"/>
+            </Button>
+            <Button x:Name="btnAnterior" ToolTip="Anterior" ToolTipService.ShowOnDisabled="True" Click="btnAnterior_action" HorizontalAlignment="Center" Height="40" VerticalAlignment="Top" Width="40" Grid.Column="1" Grid.Row="4" Margin="0,60,0,0">
+                <Image x:Name="imgAnterior" Source="img/flecha-izquierda.png" RenderTransformOrigin="-1.877,0.599" Height="36" Width="37" />
+            </Button>
+            <Button x:Name="btnAgregar" ToolTip="Agregar" ToolTipService.ShowOnDisabled="True" Click="btnAgregar_Click" HorizontalAlignment="Right" Height="40" VerticalAlignment="Top" Width="40" Grid.Column="2" Grid.Row="4" Margin="0,60,28,0" RenderTransformOrigin="0.99,0.473">
+                <Image x:Name="imgAgregar" Source="img/agregar-usuario.png" RenderTransformOrigin="-1.877,0.599" Height="40" Width="41" />
+            </Button>
+            <Button x:Name="btnActualizar" Click="btnActualizar_action" HorizontalAlignment="Left" ToolTip="Actualizar" ToolTipService.ShowOnDisabled="True" Height="40" VerticalAlignment="Top" Width="40" Grid.Column="2" Grid.Row="4" Margin="76,60,0,0" Grid.ColumnSpan="2">
+                <Image x:Name="imgActualizar" Source="img/actualizar.png" RenderTransformOrigin="-1.877,0.599" Height="36" Width="36" />
+            </Button>
+            <Button x:Name="btnBorrar" Click="btnBorrar_action" HorizontalAlignment="Left" Height="40" ToolTip="Borrar" ToolTipService.ShowOnDisabled="True" VerticalAlignment="Top" Width="40" Grid.Column="3" Grid.Row="4" Margin="12,60,0,0">
+                <Image x:Name="imgBorrar" Source="img/quitar-usuario.png" RenderTransformOrigin="-1.877,0.599" Height="36" Width="38" />
+            </Button>
+            <Button x:Name="btnCancelar" Click="btnCancelar_action" HorizontalAlignment="Left" Height="40" ToolTip="Cancelar" ToolTipService.ShowOnDisabled="True" VerticalAlignment="Top" Width="40" Grid.Column="4" Grid.Row="4" Margin="8,60,0,0" RenderTransformOrigin="0.567,0.789">
+                <Image x:Name="imgCancelar" Source="img/boton-x.png" RenderTransformOrigin="-1.877,0.599" Height="36" Width="36" />
+            </Button>
+            <Button x:Name="btnGuardar" Click="btnGuardar_action" HorizontalAlignment="Center" Height="40" ToolTip="Guardar" ToolTipService.ShowOnDisabled="True" VerticalAlignment="Top" Width="40" Grid.Column="4" Grid.Row="4" Margin="0,60,0,0" RenderTransformOrigin="0.178,0.685">
+                <Image x:Name="imgGuardar" Source="img/disco-flexible.png" RenderTransformOrigin="-1.877,0.599" Height="36" Width="37" />
+            </Button>
+            <Button x:Name="btnSiguiente" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" ToolTip="Siguiente" ToolTipService.ShowOnDisabled="True" Width="40" Grid.Column="4" Grid.Row="4" Margin="106,59,0,0" RenderTransformOrigin="1.114,1.388" Click="btnSiguiente_action" Grid.ColumnSpan="2">
+                <Image x:Name="imgSiguiente" Source="img/flecha-correcta.png" RenderTransformOrigin="0.658,5.464" Height="36" Width="35" />
+            </Button>
+            <Button x:Name="btnUltimo" Click="btnLast_action" HorizontalAlignment="Left" Height="40" ToolTip="Ultimo" ToolTipService.ShowOnDisabled="True" VerticalAlignment="Top" Width="40" Grid.Column="5" Grid.Row="4" Margin="32,59,0,0" Grid.ColumnSpan="2">
+                <Image x:Name="imgUltimo" Source="img/saltear.png" RenderTransformOrigin="0.452,0.255" Height="36" Width="37" />
+            </Button>
+        </Grid>
+
+        <!--GRID PRINCIPAL-->
+        <StackPanel x:Name="stkPanel" Grid.ColumnSpan="2" Margin="0,0,0,8">
+
+            <Menu x:Name="mimenu">
+                <!--MENU ARCHIVO-->
+                <MenuItem x:Name="menuArchivo" Header="_Archivo">
+                    <MenuItem x:Name="menuAbrir" Header="Abrir" Click="menuabrir_click" />
+                    <Separator />
+                    <MenuItem x:Name="menuSalir" Header="Salir" Click="menusalir_click">
+                        <MenuItem.Icon>
+                            <Image x:Name="menuSalirImg" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <!--MENU FUENTE-->
+                <MenuItem x:Name="menuFuente" Header="Fuente">
+                    <MenuItem Header="_Negrita" IsCheckable="True" Checked="negrita_checked"/>
+                    <MenuItem Header="_Cursiva" IsCheckable="True" Checked="cursiva_checked"/>
+                </MenuItem>
+                <!--MENU FUENTES/CONSULTAS-->
+                <MenuItem x:Name="menuFiltros" Header="_Filtros">
+                    <MenuItem Header="_Edad mayor de 35 (nombre,apellidos,edad y materia" Checked="mayores35_checked" IsCheckable="False" />
+                    <MenuItem Header="_Año ingreso igual o superior a 2010 (todo)"  Checked="anyosuperior2010_checked"   IsCheckable="False"/>
+                    <MenuItem Header="_Año ingreso igual o superior a 2010 y Estado Civil es casado(nombre,apellidos,edad y e.civil)"  IsCheckable="False" Checked="anyosuperior2010casado_checked" />
+                    <MenuItem Header="_Estatura superior a 160 y ordenados por Estatura descendente y Peso descendente(nombre,apellidos,edad,estatura,peso)"  IsCheckable="False" Checked="estaturasmas160_checked"/>
+                </MenuItem>
+                <!--MENU AGRUPACION-->
+                <MenuItem x:Name="menuAgrupacion" Header="_Agrupacion">
+                    <MenuItem Header="_Agrupar por E.Civil y mostrar nombre,apellidos,edad,peso y estatura" IsCheckable="False" Checked="agrupacion1_checked"/>
+                    <MenuItem Header="_Agrupar por E.Civil y mostrar cuantos hay en cada grupo" IsCheckable="False" Checked="agrupacion2_checked"/>
+                    <MenuItem Header="_Agrupar por Rangos de edad, orden descendente por Edad y mostrar nombre, apellidos y email" IsCheckable="False" Checked="agrupacion3_cheched"/>
+                    <MenuItem Header="_Agrupar por Seguro Medico, cuando la edad es igual o superior a 40, orden peso y apellidos (nombre, apellidos, peso y seguro)" IsCheckable="False" Checked="agrupacion4_checked" />
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+        <!--GRID CENTRAL CON TODOS LOS CONTROLES-->
+        <Grid x:Name="GridCentral">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="91*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="87*" />
+                <RowDefinition Height="107*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="18*" />
+                <ColumnDefinition Width="14*" />
+                <ColumnDefinition Width="21*" />
+                <ColumnDefinition Width="21*" />
+                <ColumnDefinition Width="28*" />
+                <ColumnDefinition Width="14*" />
+                <ColumnDefinition Width="21*" />
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="txtNombre" Grid.Column="2" Margin="0,74,62,26" Grid.Row="1" BorderBrush="Black" Grid.ColumnSpan="2" />
+            <TextBox x:Name="txtApellidos" Margin="0,120,53,113" Grid.Row="1" BorderBrush="Black" RenderTransformOrigin="1.273,0.381" Grid.Column="2" Grid.RowSpan="3" Grid.ColumnSpan="3" />
+            <TextBox x:Name="txtAnyoIngreso" Grid.Column="3" Margin="76,16,53,81" Grid.Row="3" BorderBrush="Black" RenderTransformOrigin="0.601,0.666" Grid.ColumnSpan="2" />
+            <TextBox x:Name="txtEmail" Grid.Column="5" Margin="9,56,64,42" Grid.Row="1" BorderBrush="Black" Grid.ColumnSpan="2" />
+            <TextBox x:Name="txtRutaFoto" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" Margin="39,60,4,49" RenderTransformOrigin="0.5,0.5" Visibility="Hidden" IsEnabled="False"/>
+            <ComboBox x:Name="comboEdad" Grid.Column="2" Margin="10,20,18,63" Grid.Row="3" RenderTransformOrigin="-4.065,-0.981" />
+            <CheckBox x:Name="checkDestDef" Grid.Column="5" Margin="7,109,10,120" Grid.Row="1" Content="Destino Definitivo" Grid.RowSpan="3" />
+            <RadioButton x:Name="rdbPracticas" Margin="0,30,0,0" GroupName="tipousu" Grid.Row="3" Grid.Column="5" Content="En Prácticas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="146" Height="15" Grid.ColumnSpan="2" />
+            <RadioButton x:Name="rdbCarrera" GroupName="tipousu" Grid.Row="3" Grid.Column="5" Content="De Carrera" HorizontalAlignment="Left" VerticalAlignment="Top" Width="146" Height="15" Margin="0,50,0,0" Grid.ColumnSpan="2" />
+            <ListBox x:Name="listSMedico" Grid.Column="7" Margin="0,0,23,81" Grid.Row="1" BorderBrush="Black" Height="75" VerticalAlignment="Bottom" Grid.RowSpan="3" />
+            <Label x:Name="lblNombre" Content="Nombre" HorizontalAlignment="Left" Margin="11,77,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.Column="1"/>
+            <Label x:Name="lblRutaFoto" Content="Ruta foto" Height="60" VerticalAlignment="Top" Grid.Column="6" Margin="11,23,97,0" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Hidden"/>
+            <Label x:Name="lblApellidos" Content="Apellidos" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Height="30" Grid.RowSpan="3" Grid.Column="1" Margin="8,0,0,0" />
+            <Label x:Name="lblEmail" Grid.Column="4" Content="Email" HorizontalAlignment="Left" Margin="52,60,0,0" Grid.Row="1" VerticalAlignment="Top" />
+            <Label x:Name="lblEdad" Content="Edad" HorizontalAlignment="Left" Margin="19,29,0,0" Grid.Row="3" VerticalAlignment="Top" RenderTransformOrigin="0.921,-0.432" Grid.Column="1" />
+            <Label x:Name="lblAnyoIngreso" Grid.Column="2" Content="Año ingreso" HorizontalAlignment="Left" Margin="66,18,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+            <Label x:Name="lblSMedico" Grid.Column="6" Content="S.Medico" HorizontalAlignment="Left" Margin="10,3,0,0" Grid.Row="3" VerticalAlignment="Top" RenderTransformOrigin="0.66,-0.186" Height="35" />
+        </Grid>
+        <!--GRID BOTONES-->
+    </Grid>
+</Window>
